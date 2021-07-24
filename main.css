@@ -1,94 +1,101 @@
-/* navigation styling */
-.navbar {
-	background-color:#333;
-	overflow: auto;
-}
-.navbar a {
-	float: right;
-	color: darkgray;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
-.navbar a.active{
-	background-color: #04AA6D;
-	color: whitesmoke;
-}
-.navbar .icon{
-	display: none;
-}
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-	.navbar a, .navbar input[type=text], .navbar.icon , .search-container{
-	  float: none;
-	  display: block;
-	  text-align: left;
-	  width: 100%;
-	  margin: 0;
-	  padding: 14px;
-	}
-	
-}
-/* the responsive class is added to the navbar with javascript
-when the user clicks on the icon. This class makes the navbar look good
-on small screens(display the links verically instead of horizontal)  */
-@media screen and (max-width: 600px) {
-	.navbar.responsive {position: relative;}
-	.navbar.responsive a.icon { 
-		position:absolute;
-		right: 0;
-		top: 0;
-	}	
-	.navbar.responsive a {
-		float:none;
-		display:block;
-		text-align: left;
-	}
+/* import the font we need and add some basic CSS to reset all the default styles. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
-.navbar.icon {
-	display: none;
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
-/* Style the search box inside the navigation bar */
-.navbar input[type=text] {
-	float: right;
-	padding: 6px;
-	border: none;
-	margin-top: 8px;
-	margin-right: 16px;
-	font-size: 17px;
+
+li {
+    list-style: none;
 }
-.navbar input[type=text] {
-	border: 1px solid #ccc;
+
+a {
+    text-decoration: none;
 }
-/* hover */
-.navbar button:hover{
-	background-color: #ccc;
+
+.header{
+    border-bottom: 1px solid #E2E8F0;
 }
-.navbar .search-container {
-	float: right;
-  }
-  
-  .navbar input[type=text] {
-	padding: 6px;
-	margin-top: 8px;
-	font-size: 17px;
-	border: none;
-  }
-  
-  .navbar .search-container button {
-	float: right;
-	padding: 6px 10px;
-	margin-top: 8px;
-	margin-right: 16px;
-	background: #ddd;
-	font-size: 17px;
-	border: none;
-	cursor: pointer;
-  }
-  
-  .navbar .search-container button:hover {
-	background: #ccc;
-  }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-link{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #475569;
+}
+
+.nav-link:hover{
+    color: #482ff7;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #482ff7;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+}
